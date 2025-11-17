@@ -8,15 +8,7 @@ function formatValue(value: unknown) {
   }
 }
 
-/*
-Sample Input:
-console.log(getLength('typescript'));
-console.log(getLength([10, 20, 30, 40]));
 
-Sample Output:
-10;
-4;
-*/
 function getLength(input: unknown) {
   if (typeof input === "string") {
     return input.length + ";";
@@ -25,18 +17,6 @@ function getLength(input: unknown) {
   }
 }
 
-/*
-Sample Input:
-const person1 = new Person('John Doe', 30);
-console.log(person1.getDetails());
-
-const person2 = new Person('Alice', 25);
-console.log(person2.getDetails());
-
-Sample Output:
-'Name: John Doe, Age: 30';
-'Name: Alice, Age: 25';
-*/
 
 class Person {
   name: string;
@@ -52,27 +32,7 @@ class Person {
   }
 }
 
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
 
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
-
-/*
-Sample Input:
-const books = [
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book B', rating: 3.2 },
-  { title: 'Book C', rating: 5.0 },
-];
-
-console.log(filterByRating(books));
-Sample Output:
-[
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book C', rating: 5.0 },
-];
-*/
 type Item = {
   title: string;
   rating: number;
@@ -85,31 +45,11 @@ function filterByRating(items: Item[]): Item[] {
 }
 
 const books = [
-  { title: "Book A", rating: 5.5 },
-  { title: "Book B", rating: 4.2 },
-  { title: "Book D", rating: 4.0 },
-  { title: "Book E", rating: 3.9 },
+  { title: "Book A", rating: 4.8 },
+  { title: "Book B", rating: 3.2 },
   { title: "Book C", rating: 5.0 },
 ];
 
-// console.log(filterByRating(books));
-
-/*
-Sample Input:
-const users = [
-  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-  { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-];
-
-console.log(filterActiveUsers(users));
-
-Sample Output:
-[
-  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-];
-*/
 
 type UserInfo = {
   id: number;
@@ -128,21 +68,6 @@ const users = [
   { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
 ];
 
-// console.log(filterActiveUsers(users));
-
-/*
-Sample Input:
-const myBook: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
-  publishedYear: 1925,
-  isAvailable: true,
-};
-
-printBookDetails(myBook);
-Sample Output:
-Title: The Great Gatsby, Author: F. Scott Fitzgerald, Published: 1925, Available: Yes
-*/
 
 interface Book {
   title: string;
@@ -165,7 +90,8 @@ const myBook: Book = {
   publishedYear: 1925,
   isAvailable: false,
 };
-// printBookDetails(myBook);
+
+
 
 function getUniqueValues(
   array1: (number | string)[],
@@ -191,3 +117,24 @@ function getUniqueValues(
   }
   return result;
 }
+
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number; 
+};
+
+function calculateTotalPrice(products: Product[]): number {
+  return products
+    .map(product => {
+      const total = product.price * product.quantity;
+      const discountAmount = product.discount
+        ? total * (product.discount / 100)
+        : 0;
+      return total - discountAmount;
+    })
+    .reduce((sum, item) => sum + item, 0);
+}
+
