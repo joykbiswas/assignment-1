@@ -8,7 +8,6 @@ function formatValue(value: unknown) {
   }
 }
 
-
 function getLength(input: unknown) {
   if (typeof input === "string") {
     return input.length + ";";
@@ -16,7 +15,6 @@ function getLength(input: unknown) {
     return input.length + ";";
   }
 }
-
 
 class Person {
   name: string;
@@ -31,7 +29,6 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
-
 
 type Item = {
   title: string;
@@ -50,7 +47,6 @@ const books = [
   { title: "Book C", rating: 5.0 },
 ];
 
-
 type UserInfo = {
   id: number;
   name: string;
@@ -67,7 +63,6 @@ const users = [
   { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
   { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
 ];
-
 
 interface Book {
   title: string;
@@ -90,8 +85,6 @@ const myBook: Book = {
   publishedYear: 1925,
   isAvailable: false,
 };
-
-
 
 function getUniqueValues(
   array1: (number | string)[],
@@ -118,17 +111,16 @@ function getUniqueValues(
   return result;
 }
 
-
 type Product = {
   name: string;
   price: number;
   quantity: number;
-  discount?: number; 
+  discount?: number;
 };
 
 function calculateTotalPrice(products: Product[]): number {
   return products
-    .map(product => {
+    .map((product) => {
       const total = product.price * product.quantity;
       const discountAmount = product.discount
         ? total * (product.discount / 100)
@@ -137,4 +129,3 @@ function calculateTotalPrice(products: Product[]): number {
     })
     .reduce((sum, item) => sum + item, 0);
 }
-
